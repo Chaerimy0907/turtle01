@@ -55,9 +55,9 @@ def check_collision():
     box_half=25
     radius=10
         
-    # 충돌 판정 : 거북이 크기 + 장애물 반지름
+    # 충돌 판정 : turtle의 외곽이 장애물과 겹치는지 확인
     if (-(box_half+radius) < turtle_x < (box_half+radius)) and (-(box_half+radius) < turtle_y < (box_half+radius)):
-        return True # 충돌발생
+        return True # 충돌발
     return False # 안전
 
 # 거리 계산 함수
