@@ -63,14 +63,7 @@ turtle.left(45)
 cal_distance(200,200)
 
 print(f"{total_distance}")
-# # 장애물 회피 경로
-# turtle.left(45)
-# turtle.forward(180)
-# turtle.left(90)
-# turtle.forward(100)
-# turtle.right(90)
-# turtle.forward(200)
-# turtle.right(90)
-# turtle.forward(100)
-# turtle.left(90)
-# turtle.forward(180)
+
+if turtle.pos()==(200,200):
+    print("Goal")
+
