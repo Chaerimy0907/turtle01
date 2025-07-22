@@ -45,12 +45,28 @@ turtle.pendown()
 total_distance=0 # 누적된 거리
 pre_x,pre_y=turtle.pos()
 
+# 충돌 감지 함수
+def check_collision():
+    # 현재 거북이의 위치 가져오기
+    turtle_x=turtle.xcor()
+    turtle_y=turtle.ycor()
+    
+    # 정사각형 장애물 중심 : (0,0), 변의 길이 50 -> 좌우 +-25, 상하 +-25
+    box_half=25
+    radius=10
+        
+    # 충돌 판정 : 거북이 크기 + 장애물 반지름
+    if (-(box_half+radius) < turtle_x < (box_half+radius)) and (-(box_half+radius) < turtle_y < (box_half+radius)):
+        return True # 충돌발생
+    return False # 안전
+
+# 거리 계산 함수
 def cal_distance(x,y):
     global total_distance, pre_x, pre_y
     turtle.goto(x,y)
     new_x,new_y=x,y
-    distance=math.sqrt((new_x-pre_x)**2 + (new_y-pre_y)**2)
-    total_distance += distance
+    d=math.sqrt((new_x-pre_x)**2 + (new_y-pre_y)**2)
+    total_distance += d
     pre_x,pre_y=new_x,new_y
     
 turtle.left(45)
